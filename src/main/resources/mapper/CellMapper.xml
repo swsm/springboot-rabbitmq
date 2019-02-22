@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wisdytech.collect.process.model.CellMapper">
+
+    <select id="getCellIdByCellCode" parameterType="map" resultType="java.lang.String">
+        select pk_id as id from tt_wo_cell_detail where  DEL_FLAG = '0' and cell_code = #{cellCode}
+    </select>
+
+    <select id="getBatchNoByCellCode" parameterType="map" resultType="java.lang.String">
+        select batch_no from tt_wo_pm_result where  cell_code = #{cellCode}
+    </select>
+
+    <insert id="insertCellCourse" parameterType="map">
+        insert into TT_WO_CELL_COURSE(PK_ID,BATCH_NO,CELL_CODE,EQUIP_CODE,OP_ID,BEGIN_TIME,END_TIME,PRODUCE_TYPE,
+        CLASS_NAME,CLASS_TIME_STR,DEL_FLAG,CREATE_DATE,CREATE_USER,COLLECT_ID)
+        VALUES (#{id}, #{batchNo,jdbcType=VARCHAR}, #{cellCode,jdbcType=VARCHAR},
+        #{equipCode,jdbcType=VARCHAR},#{opId,jdbcType=VARCHAR},#{beginTime,jdbcType=TIMESTAMP},
+        #{endTime,jdbcType=TIMESTAMP},#{produceType,jdbcType=VARCHAR},#{className,jdbcType=VARCHAR},#{classNameStr,jdbcType=VARCHAR},
+        '1',#{createDate,jdbcType=TIMESTAMP},'collect',#{collectId,jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="insertCellDetail" parameterType="map">
+        insert into tt_wo_cell_detail (PK_ID, CELL_CODE, DEL_FLAG, CREATE_USER, CREATE_DATE,BATCH_NO,
+        LIQULD_NUMBER,LIQULD_BEFORE_WEIGHT,LIQULD_AFTER_WEIGHT,LIQULD_DATE_TIME,
+        KEEP_LIQULD_NUMBER,CUT_SIDE_WEIGHT,EF_DATE_TIME,
+        HC_CAPACITY,HC_INTERVAL,HC_START_TIME,HC_END_TIME,HC_VOLTAGE,
+        FR_START_TIME,FR_END_TIME,FR_STEPTIME,FR_TOTAL_CAPACITY,FR_STARTVOL,FR_ENDVOL,FR_ENDELECT,FR_VOLTAGE,FR_CAPACITY,
+        OCV1_TEST_TIME,OCV1_RESULT,OCV1_VOLTAGE,OCV1_RESISTANCE,
+        OCV2_VOLTAGE,OCV2_RESISTANCE,OCV2_KVALUE,OCV2_TEST_TIME,OCV2_RESULT,KVALUE,
+        XRAY_TEST_TIME,XRAY_RESULT,
+        remark)
+        VALUES (#{id}, #{cellCode,jdbcType=VARCHAR },'0','collect',#{createDate,jdbcType=TIMESTAMP},#{batchNo,jdbcType=VARCHAR},
+           #{LIQULD_NUMBER,  jdbcType=DOUBLE },#{LIQULD_BEFORE_WEIGHT, jdbcType=DOUBLE },#{LIQULD_AFTER_WEIGHT,  jdbcType=DOUBLE },#{LIQULD_DATE_TIME,  jdbcType=VARCHAR },
+
+            #{KEEP_LIQULD_NUMBER,jdbcType=DOUBLE },#{CUT_SIDE_WEIGHT,jdbcType=DOUBLE },#{EF_DATE_TIME,jdbcType=VARCHAR },
+
+            #{HC_CAPACITY, jdbcType=DOUBLE },#{HC_INTERVAL, jdbcType=DOUBLE },#{HC_START_TIME,  jdbcType=VARCHAR },#{HC_END_TIME, jdbcType=VARCHAR },#{HC_VOLTAGE,  jdbcType=DOUBLE },
+
+            #{FR_START_TIME,  jdbcType=VARCHAR },#{FR_END_TIME, jdbcType=VARCHAR },#{FR_STEPTIME, jdbcType=DOUBLE },#{FR_TOTAL_CAPACITY, jdbcType=DOUBLE },#{FR_STARTVOL, jdbcType=DOUBLE },
+            #{FR_ENDVOL,jdbcType=DOUBLE },#{FR_ENDELECT, jdbcType=DOUBLE },#{FR_VOLTAGE,  jdbcType=DOUBLE },#{FR_CAPACITY, jdbcType=DOUBLE },
+
+            #{OCV1_TEST_TIME, jdbcType=VARCHAR },#{OCV1_RESULT, jdbcType=VARCHAR },#{OCV1_VOLTAGE,jdbcType=DOUBLE },#{OCV1_RESISTANCE,jdbcType=DOUBLE },
+
+            #{OCV2_VOLTAGE,jdbcType=DOUBLE },#{OCV2_RESISTANCE,jdbcType=DOUBLE },#{OCV2_KVALUE, jdbcType=DOUBLE },#{OCV2_TEST_TIME, jdbcType=VARCHAR },#{OCV2_RESULT, jdbcType=VARCHAR },
+
+            #{KVALUE,jdbcType=DOUBLE },
+
+            #{XRAY_TEST_TIME, jdbcType=VARCHAR },#{XRAY_RESULT, jdbcType=VARCHAR },
+            #{remark,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <update id="updateCellDetail" parameterType="map">
+        update tt_wo_cell_detail SET
+        <if test="batchNo != null">BATCH_NO = #{batchNo,jdbcType=VARCHAR},</if>
+        <if test="LIQULD_NUMBER         != null"> LIQULD_NUMBER          =#{LIQULD_NUMBER,        jdbcType=DOUBLE },   </if>
+        <if test="LIQULD_BEFORE_WEIGHT  != null"> LIQULD_BEFORE_WEIGHT   =#{LIQULD_BEFORE_WEIGHT, jdbcType=DOUBLE },   </if>
+        <if test="LIQULD_AFTER_WEIGHT   != null"> LIQULD_AFTER_WEIGHT    =#{LIQULD_AFTER_WEIGHT,  jdbcType=DOUBLE },   </if>
+        <if test="LIQULD_DATE_TIME      != null"> LIQULD_DATE_TIME       =#{LIQULD_DATE_TIME,     jdbcType=VARCHAR },  </if>
+        <if test="KEEP_LIQULD_NUMBER    != null"> KEEP_LIQULD_NUMBER     =#{KEEP_LIQULD_NUMBER,   jdbcType=DOUBLE },   </if>
+        <if test="CUT_SIDE_WEIGHT       != null"> CUT_SIDE_WEIGHT        =#{CUT_SIDE_WEIGHT,      jdbcType=DOUBLE },   </if>
+        <if test="EF_DATE_TIME          != null"> EF_DATE_TIME           =#{EF_DATE_TIME,         jdbcType=VARCHAR },  </if>
+        <if test="HC_CAPACITY           != null"> HC_CAPACITY            =#{HC_CAPACITY,          jdbcType=DOUBLE },   </if>
+        <if test="HC_INTERVAL           != null"> HC_INTERVAL            =#{HC_INTERVAL,          jdbcType=DOUBLE },   </if>
+        <if test="HC_START_TIME         != null"> HC_START_TIME          =#{HC_START_TIME,        jdbcType=VARCHAR },  </if>
+        <if test="HC_END_TIME           != null"> HC_END_TIME            =#{HC_END_TIME,          jdbcType=VARCHAR },  </if>
+        <if test="HC_VOLTAGE            != null"> HC_VOLTAGE             =#{HC_VOLTAGE,           jdbcType=DOUBLE },   </if>
+        <if test="FR_START_TIME         != null"> FR_START_TIME          =#{FR_START_TIME,        jdbcType=VARCHAR },  </if>
+        <if test="FR_END_TIME           != null"> FR_END_TIME            =#{FR_END_TIME,          jdbcType=VARCHAR },  </if>
+        <if test="FR_STEPTIME           != null"> FR_STEPTIME            =#{FR_STEPTIME,          jdbcType=DOUBLE },   </if>
+        <if test="FR_TOTAL_CAPACITY     != null"> FR_TOTAL_CAPACITY      =#{FR_TOTAL_CAPACITY,    jdbcType=DOUBLE },   </if>
+        <if test="FR_STARTVOL           != null"> FR_STARTVOL            =#{FR_STARTVOL,          jdbcType=DOUBLE },   </if>
+        <if test="FR_ENDVOL             != null"> FR_ENDVOL              =#{FR_ENDVOL,            jdbcType=DOUBLE },   </if>
+        <if test="FR_ENDELECT           != null"> FR_ENDELECT            =#{FR_ENDELECT,          jdbcType=DOUBLE },   </if>
+        <if test="FR_VOLTAGE            != null"> FR_VOLTAGE             =#{FR_VOLTAGE,           jdbcType=DOUBLE },   </if>
+        <if test="FR_CAPACITY           != null"> FR_CAPACITY            =#{FR_CAPACITY,          jdbcType=DOUBLE },   </if>
+        <if test="OCV1_TEST_TIME        != null"> OCV1_TEST_TIME         =#{OCV1_TEST_TIME,       jdbcType=VARCHAR },  </if>
+        <if test="OCV1_RESULT           != null"> OCV1_RESULT            =#{OCV1_RESULT,          jdbcType=VARCHAR },  </if>
+        <if test="OCV1_VOLTAGE          != null"> OCV1_VOLTAGE           =#{OCV1_VOLTAGE,         jdbcType=DOUBLE },   </if>
+        <if test="OCV1_RESISTANCE       != null"> OCV1_RESISTANCE        =#{OCV1_RESISTANCE,      jdbcType=DOUBLE },   </if>
+        <if test="OCV2_VOLTAGE          != null"> OCV2_VOLTAGE           =#{OCV2_VOLTAGE,         jdbcType=VARCHAR },  </if>
+        <if test="OCV2_RESISTANCE       != null"> OCV2_RESISTANCE        =#{OCV2_RESISTANCE,      jdbcType=VARCHAR },  </if>
+        <if test="OCV2_KVALUE           != null"> OCV2_KVALUE            =#{OCV2_KVALUE,          jdbcType=VARCHAR },  </if>
+        <if test="OCV2_TEST_TIME        != null"> OCV2_TEST_TIME         =#{OCV2_TEST_TIME,       jdbcType=VARCHAR },  </if>
+        <if test="OCV2_RESULT           != null"> OCV2_RESULT            =#{OCV2_RESULT,          jdbcType=VARCHAR },  </if>
+        <if test="KVALUE                != null"> KVALUE                 =#{KVALUE,               jdbcType=VARCHAR },  </if>
+        <if test="XRAY_TEST_TIME        != null"> XRAY_TEST_TIME         =#{XRAY_TEST_TIME,       jdbcType=VARCHAR },  </if>
+        <if test="XRAY_RESULT           != null"> XRAY_RESULT            =#{XRAY_RESULT,          jdbcType=VARCHAR },  </if>
+        update_user = 'collect', UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP}
+        <where>
+            <if test="id != null">PK_ID = #{id,jdbcType=VARCHAR}</if>
+        </where>
+    </update>
+
+</mapper>

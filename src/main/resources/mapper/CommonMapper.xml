@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wisdytech.collect.process.model.CommonHandle">
+
+    <resultMap id="RotaResultMap" type="com.wisdytech.collect.process.model.Rota" >
+        <id column="id" property="id" jdbcType="VARCHAR" />
+        <result column="rotaName" property="rotaName" jdbcType="TIMESTAMP" />
+        <result column="startTime" property="startTime" jdbcType="TIMESTAMP" />
+        <result column="endTime" property="endTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+    <select id="getRota" resultMap="RotaResultMap" parameterType="map" >
+       select tr.pk_id as id,tr.rota_name as rotaName,tr.START_TIME
+          as startTime,tr.END_TIME as endTime from tm_rota tr
+         left join tm_class_system tcs on tr.class_system_id = tcs.pk_id
+         where tr.del_flag = '0' and tcs.del_flag='0' and tcs.is_use = '1'
+         order by tr.START_TIME
+    </select>
+
+    <insert id="insertHistory" parameterType="map">
+        insert into TT_COLLECT_HISTORY (PK_ID, JSON, QUEUE_NAME,EXCEPTION_STACK_TRACE, CREATE_DATE,CELL_CODE, EQUIP_CODE,TIME)
+        values (#{id}, #{json,jdbcType=VARCHAR}, #{queueName,jdbcType=VARCHAR},#{exceptionStackTrace,jdbcType=VARCHAR},
+        sysdate,#{cellCode,jdbcType=VARCHAR},#{equipCode,jdbcType=VARCHAR},#{time,jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="insertCollectException" parameterType="map">
+        insert into TT_COLLECT_EXCEPTION (PK_ID, EXCEPTION_STACK_TRACE)
+        values (#{id}, #{ex,jdbcType=VARCHAR})
+    </insert>
+
+    <update id="updateCollectHistory" parameterType="map">
+        update TT_COLLECT_HISTORY set EXCEPTION_STACK_TRACE =
+        #{exceptionStackTrace}, update_date = sysdate where pk_id
+        = #{id}
+    </update>
+
+    <insert id="insertTable" parameterType="map">
+        insert into ${tableName}(PK_ID,batch_no,lot_no,class_name,class_name_str,create_date,
+        <foreach collection="columnNames" item="columnName" index="index" separator=",">
+            ${columnName}
+        </foreach>
+        ) values (#{id},#{batchNo,jdbcType=VARCHAR},#{lotNo,jdbcType=VARCHAR},#{className,jdbcType=VARCHAR},#{classNameStr,jdbcType=VARCHAR},sysdate,
+            <foreach collection="columnValues" item="columnValue" index="index" separator=",">
+                ${columnValue}
+            </foreach>
+        )
+    </insert>
+
+    <insert id="insertPureTable" parameterType="map">
+        insert into ${tableName}(PK_ID,create_date,
+        <foreach collection="columnNames" item="columnName" index="index" separator=",">
+            ${columnName}
+        </foreach>
+        ) values (#{id},sysdate,
+        <foreach collection="columnValues" item="columnValue" index="index" separator=",">
+            ${columnValue}
+        </foreach>
+        )
+    </insert>
+
+    <select id="updateWorkOrderQty"  parameterType="map" >
+        update tt_wo_order set finish_qty = nvl(FINISH_QTY,0) + #{finishCellQty}, FINISH_WIP_QTY = nvl(FINISH_WIP_QTY,0) + #{finishWipQty},
+        UPDATE_USER = 'collect', update_date = sysdate
+        where batch_no = #{batchNo, jdbcType=VARCHAR} and op_id = (select pk_id from tm_OPERATION WHERE operate_url = #{operateUrl, jdbcType=VARCHAR} and del_flag = '0')
+    </select>
+
+    <select id="getOpIdByOpUrl"  resultType="java.lang.String" parameterType="map">
+        select pk_id from tm_operation where operate_url = #{opUrl, jdbcType=VARCHAR} and del_flag = '0'
+    </select>
+
+</mapper>

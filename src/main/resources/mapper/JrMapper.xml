@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wisdytech.collect.process.model.JrMapper">
+
+
+    <select id="getBatchNoForJr"  resultType="java.lang.String" parameterType="map">
+        select batch_no from tt_wo_wip where lot_no = #{posPoleBatchNo, jdbcType=VARCHAR} OR LOT_NO = #{negPoleBatchNo, jdbcType=VARCHAR}
+    </select>
+
+    <select id="getJrInfoByBoxCode" resultType="java.util.Map" parameterType="map" >
+        SELECT t.pk_id as jr_id, t.equip_code as jr_equip_code, t.BARCODE as jr_barcode, t.earbatch as jr_earbatch, t.DIAPHRAGMKIND as jr_DIAPHRAGMKIND,
+         t.DIAPHRAGMBATCHUP as jr_DIAPHRAGMBATCHUP, t.DIAPHRAGMBATCHDOWN as jr_DIAPHRAGMBATCHDOWN, t.ANODEVOLUMEBATCH as jr_ANODEVOLUMEBATCH,
+         t.CATHODEVOLUMEBATCH as jr_CATHODEVOLUMEBATCH, t.PAPERKIND as jr_PAPERKIND, t.TESTRESULT as jr_TESTRESULT, t.BADSTATISTICS as jr_BADSTATISTICS,
+         t.BOXCODE as jr_BOXCODE, t.TIME as jr_TIME, t.batch_no as jr_batch_no, t.lot_no as jr_lot_no,
+         t.class_name as jr_class_name, t.class_name_str as jr_class_name_str
+         FROM TT_COLLECT_JR_RESULT T
+         left join
+            (SELECT MAX(LOT_NO) as maxLotNo
+             FROM TT_COLLECT_JR_RESULT
+             WHERE is_connect_cf is null AND BOXCODE = #{boxCode, jdbcType=VARCHAR}) a on t.lot_no = a.maxLotNo
+         where t.lot_no = a.maxLotNo
+    </select>
+
+    <update id="updateJrIsConnectCf" parameterType="map">
+        update tt_collect_jr_result set is_connect_cf =
+        #{isConnectCf, jdbcType=VARCHAR}, update_date = sysdate where pk_id
+        = #{id, jdbcType=VARCHAR}
+    </update>
+
+
+</mapper>

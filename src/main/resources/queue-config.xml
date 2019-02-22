@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8" standalone = "yes"?>
+<collect>
+
+    <queue queueName="equipStatusQueue" text="设备状态参数队列">
+        <insertParam>
+            <column dcsName="EquipID" mesName="Equip_Code" text="设备编码" jdbcType="VARCHAR" tableName="TT_COLLECT_EQUIP_STATUS"></column>
+            <column dcsName="Status" mesName="CUR_STATUS" jdbcType="VARCHAR" text="设备状态" tableName="TT_COLLECT_EQUIP_STATUS"></column>
+            <column dcsName="Datetime" mesName="HAPPEN_TIME" jdbcType="TIMESTAMP" text="发生时间" tableName="TT_COLLECT_EQUIP_STATUS"></column>
+            <column dcsName="AddTime"  mesName="Time"   jdbcType="TIMESTAMP" text="采集时间" tableName="TT_COLLECT_EQUIP_STATUS"></column>
+        </insertParam>
+    </queue>
+
+    <queue queueName="equipAlertQueue" text="设备报警参数队列">
+        <insertParam>
+            <column dcsName="EquipID" mesName="Equip_Code" text="设备编码" jdbcType="VARCHAR" tableName="TT_COLLECT_EQUIP_ALERT"></column>
+            <column dcsName="Abnormal" mesName="CUR_STATUS" jdbcType="VARCHAR" text="设备状态" tableName="TT_COLLECT_EQUIP_ALERT"></column>
+            <column dcsName="AbnormalID" mesName="ALERT_CODE" jdbcType="VARCHAR" text="设备状态" tableName="TT_COLLECT_EQUIP_ALERT"></column>
+            <column dcsName="Datetime" mesName="HAPPEN_TIME" jdbcType="TIMESTAMP" text="发生时间" tableName="TT_COLLECT_EQUIP_ALERT"></column>
+            <column dcsName="AddTime"  mesName="Time"   jdbcType="TIMESTAMP" text="采集时间" tableName="TT_COLLECT_EQUIP_ALERT"></column>
+        </insertParam>
+    </queue>
+
+    <queue queueName="jbProcessQueue" text="搅拌过程参数队列">
+        <insertParam>
+            <column dcsName="EquipID" mesName="Equip_Code" text="设备编码" jdbcType="VARCHAR" tableName="TT_COLLECT_JB_PROCESS"></column>
+            <column dcsName="Status" mesName="Status" jdbcType="DOUBLE" text="设备状态" tableName="TT_COLLECT_JB_PROCESS"></column>
+            <column dcsName="MixSpeedS" mesName="MixSpeedS" jdbcType="DOUBLE" text="搅拌速度设定值" tableName="TT_COLLECT_JB_PROCESS"></column>
+            <column dcsName="MixSpeedA" mesName="MixSpeedA" jdbcType="DOUBLE" text="搅拌速度实际值" tableName="TT_COLLECT_JB_PROCESS"></column>
+            <column dcsName="MixTimeS" mesName="MixTimeS" jdbcType="DOUBLE" text="搅拌时间设定值" tableName="TT_COLLECT_JB_PROCESS"></column>
+            <column dcsName="MixTimeA" mesName="MixTimeA" jdbcType="VARCHAR" text="剩余搅拌时间" tableName="TT_COLLECT_JB_PROCESS"></column>
+            <column dcsName="MixCurrent" mesName="MixCurrent" jdbcType="DOUBLE" text="搅拌电流" tableName="TT_COLLECT_JB_PROCESS"></column>
+            <column dcsName="DisperseSpeedS" mesName="DisperseSpeedS" jdbcType="DOUBLE" text="分散速度设定值" tableName="TT_COLLECT_JB_PROCESS"></column>
+            <column dcsName="DisperseSpeedA" mesName="DisperseSpeedA" jdbcType="DOUBLE" text="分散速度实际值" tableName="TT_COLLECT_JB_PROCESS"></column>
+            <column dcsName="DisperseTimeS" mesName="DisperseTimeS" jdbcType="DOUBLE" text="分散时间设定值" tableName="TT_COLLECT_JB_PROCESS"></column>
+            <column dcsName="DisperseTimeA" mesName="DisperseTimeA" jdbcType="VARCHAR" text="剩余分散时间" tableName="TT_COLLECT_JB_PROCESS"></column>
+            <column dcsName="DisperseCurrent" mesName="DisperseCurrent" jdbcType="DOUBLE" text="分散电流" tableName="TT_COLLECT_JB_PROCESS"></column>
+            <column dcsName="TemS"  mesName="TemS"   jdbcType="DOUBLE" text="冷却开启温度" tableName="TT_COLLECT_JB_PROCESS"></column>
+            <column dcsName="TemE"  mesName="TemE"   jdbcType="DOUBLE" text="冷却关闭温度" tableName="TT_COLLECT_JB_PROCESS"></column>
+            <column dcsName="TemA"  mesName="TemA"   jdbcType="DOUBLE" text="温度实际值" tableName="TT_COLLECT_JB_PROCESS"></column>
+            <column dcsName="VacuumS"  mesName="VacuumS"   jdbcType="DOUBLE" text="真空启动压力" tableName="TT_COLLECT_JB_PROCESS"></column>
+            <column dcsName="VacuumA"  mesName="VacuumA"   jdbcType="DOUBLE" text="真空停止压力" tableName="TT_COLLECT_JB_PROCESS"></column>
+            <column dcsName="VacuumT"  mesName="VacuumT"   jdbcType="DOUBLE" text="真空度实际值" tableName="TT_COLLECT_JB_PROCESS"></column>
+            <column dcsName="AddTime" mesName="Time" text="采集时间" jdbcType="TIMESTAMP" tableName="TT_COLLECT_JB_PROCESS"></column>
+        </insertParam>
+    </queue>
+
+    <queue queueName="tbProcessQueue" text="涂布过程参数队列">
+    <insertParam>
+        <column dcsName="EquipID" mesName="Equip_Code" text="设备编码" jdbcType="VARCHAR" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Status" mesName="Status" jdbcType="DOUBLE" text="设备状态" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="JtSection" mesName="JtSection" jdbcType="DOUBLE" text="间涂段数" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="ZdLength" mesName="ZdLength" jdbcType="DOUBLE" text="走带长度" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="SjDiameter" mesName="SjDiameter" jdbcType="DOUBLE" text="收卷卷径" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="LtLength" mesName="LtLength" jdbcType="DOUBLE" text="连续涂布长度" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="AjtLength" mesName="AjtLength" jdbcType="DOUBLE" text="A面间涂长度" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="AjxLength" mesName="AjxLength" jdbcType="DOUBLE" text="A面间隙长度" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="BjtLength" mesName="BjtLength" jdbcType="DOUBLE" text="B面间涂长度" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="BjxLength" mesName="BjxLength" jdbcType="DOUBLE" text="B面间隙长度" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="JtLengthValue" mesName="JtLengthValue" jdbcType="DOUBLE" text="间涂长度监控值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="JxLengthValue" mesName="JxLengthValue" jdbcType="DOUBLE" text="间隙长度监控值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Speed" mesName="Speed" jdbcType="DOUBLE" text="设备运行速度" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="FjTensile" mesName="FjTensile" jdbcType="DOUBLE" text="放卷张力设定" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="ChxqyTensile" mesName="ChxqyTensile" jdbcType="DOUBLE" text="出烘箱牵引张力" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="SjTensile" mesName="SjTensile" jdbcType="DOUBLE" text="收卷张力设定" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="GlbSpeed" mesName="GlbSpeed" jdbcType="DOUBLE" text="供料泵运行速度" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="LeftJx" mesName="LeftJx" jdbcType="DOUBLE" text="模头左间隙设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="RightJx" mesName="RightJx" jdbcType="DOUBLE" text="模头右间隙设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="TbTopxb" mesName="TbTopxb" jdbcType="DOUBLE" text="涂布头部削薄" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="TbUnderxb" mesName="TbUnderxb" jdbcType="DOUBLE" text="涂布尾部削薄" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper1S" mesName="Temper1S" jdbcType="DOUBLE" text="烘箱1温度设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper1A" mesName="Temper1A" jdbcType="DOUBLE" text="烘箱1温度实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper2S" mesName="Temper2S" jdbcType="DOUBLE" text="烘箱2温度设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper2A" mesName="Temper2A" jdbcType="DOUBLE" text="烘箱2温度实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper3S" mesName="Temper3S" jdbcType="DOUBLE" text="烘箱3温度设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper3A" mesName="Temper3A" jdbcType="DOUBLE" text="烘箱3温度实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper4S" mesName="Temper4S" jdbcType="DOUBLE" text="烘箱4温度设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper4A" mesName="Temper4A" jdbcType="DOUBLE" text="烘箱4温度实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper5S" mesName="Temper5S" jdbcType="DOUBLE" text="烘箱5温度设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper5A" mesName="Temper5A" jdbcType="DOUBLE" text="烘箱5温度实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper6S" mesName="Temper6S" jdbcType="DOUBLE" text="烘箱6温度设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper6A" mesName="Temper6A" jdbcType="DOUBLE" text="烘箱6温度实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper7S" mesName="Temper7S" jdbcType="DOUBLE" text="烘箱7温度设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper7A" mesName="Temper7A" jdbcType="DOUBLE" text="烘箱7温度实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper8S" mesName="Temper8S" jdbcType="DOUBLE" text="烘箱8温度设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper8A" mesName="Temper8A" jdbcType="DOUBLE" text="烘箱8温度实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper9S" mesName="Temper9S" jdbcType="DOUBLE" text="烘箱9温度设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper9A" mesName="Temper9A" jdbcType="DOUBLE" text="烘箱9温度实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper10S" mesName="Temper10S" jdbcType="DOUBLE" text="烘箱10温度设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper10A" mesName="Temper10A" jdbcType="DOUBLE" text="烘箱10温度实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper11S" mesName="Temper11S" jdbcType="DOUBLE" text="烘箱11温度设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper11A" mesName="Temper11A" jdbcType="DOUBLE" text="烘箱11温度实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper12S" mesName="Temper12S" jdbcType="DOUBLE" text="烘箱12温度设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper12A" mesName="Temper12A" jdbcType="DOUBLE" text="烘箱12温度实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper13S" mesName="Temper13S" jdbcType="DOUBLE" text="烘箱13温度设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Temper13A" mesName="Temper13A" jdbcType="DOUBLE" text="烘箱13温度实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Frequency1S" mesName="Frequency1S" jdbcType="DOUBLE" text="烘箱循环风机频率 1 频率设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Frequency1A" mesName="Frequency1A" jdbcType="DOUBLE" text="烘箱循环风机频率 1 频率实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Frequency2S" mesName="Frequency2S" jdbcType="DOUBLE" text="烘箱循环风机频率 2 频率设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Frequency2A" mesName="Frequency2A" jdbcType="DOUBLE" text="烘箱循环风机频率 2 频率实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Frequency3S" mesName="Frequency3S" jdbcType="DOUBLE" text="烘箱循环风机频率 3 频率设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Frequency3A" mesName="Frequency3A" jdbcType="DOUBLE" text="烘箱循环风机频率 3 频率实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+
+        <column dcsName="Frequency4S" mesName="Frequency4S" jdbcType="DOUBLE" text="烘箱循环风机频率 4 频率设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Frequency4A" mesName="Frequency4A" jdbcType="DOUBLE" text="烘箱循环风机频率 4 频率实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+
+        <column dcsName="Frequency5S" mesName="Frequency5S" jdbcType="DOUBLE" text="烘箱循环风机频率 5 频率设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Frequency5A" mesName="Frequency5A" jdbcType="DOUBLE" text="烘箱循环风机频率 5 频率实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+
+        <column dcsName="Frequency6S" mesName="Frequency6S" jdbcType="DOUBLE" text="烘箱循环风机频率 6 频率设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Frequency6A" mesName="Frequency6A" jdbcType="DOUBLE" text="烘箱循环风机频率 6 频率实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+
+        <column dcsName="Frequency7S" mesName="Frequency7S" jdbcType="DOUBLE" text="烘箱循环风机频率 7 频率设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Frequency7A" mesName="Frequency7A" jdbcType="DOUBLE" text="烘箱循环风机频率 7 频率实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+
+        <column dcsName="Frequency8S" mesName="Frequency8S" jdbcType="DOUBLE" text="烘箱循环风机频率 8 频率设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Frequency8A" mesName="Frequency8A" jdbcType="DOUBLE" text="烘箱循环风机频率 8 频率实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+
+        <column dcsName="Frequency9S" mesName="Frequency9S" jdbcType="DOUBLE" text="烘箱循环风机频率 9 频率设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Frequency9A" mesName="Frequency9A" jdbcType="DOUBLE" text="烘箱循环风机频率 9 频率实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Frequency10S" mesName="Frequency10S" jdbcType="DOUBLE" text="烘箱循环风机频率 10 频率设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Frequency10A" mesName="Frequency10A" jdbcType="DOUBLE" text="烘箱循环风机频率 10 频率实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Frequency11S" mesName="Frequency11S" jdbcType="DOUBLE" text="烘箱循环风机频率 11 频率设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Frequency11A" mesName="Frequency11A" jdbcType="DOUBLE" text="烘箱循环风机频率 11 频率实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Frequency12S" mesName="Frequency12S" jdbcType="DOUBLE" text="烘箱循环风机频率 12 频率设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Frequency12A" mesName="Frequency12A" jdbcType="DOUBLE" text="烘箱循环风机频率 12 频率实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Frequency13S" mesName="Frequency13S" jdbcType="DOUBLE" text="烘箱循环风机频率 13 频率设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Frequency13A" mesName="Frequency13A" jdbcType="DOUBLE" text="烘箱循环风机频率 13 频率实际值" tableName="TT_COLLECT_TB_PROCESS"></column>
+
+        <column dcsName="PFrequency1S" mesName="PFrequency1S" jdbcType="DOUBLE" text="排风1风机频率设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="PFrequency1A" mesName="PFrequency1A" jdbcType="DOUBLE" text="排风1风机频当前率值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="PFrequency2S" mesName="PFrequency2S" jdbcType="DOUBLE" text="排风2风机频率设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="PFrequency2A" mesName="PFrequency2A" jdbcType="DOUBLE" text="排风2风机频当前率值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="PFrequency3S" mesName="PFrequency3S" jdbcType="DOUBLE" text="排风3风机频率设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="PFrequency3A" mesName="PFrequency3A" jdbcType="DOUBLE" text="排风3风机频当前率值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="PFrequency4S" mesName="PFrequency4S" jdbcType="DOUBLE" text="排风4风机频率设定值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="PFrequency4A" mesName="PFrequency4A" jdbcType="DOUBLE" text="排风4风机频当前率值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Nmp1Value" mesName="Nmp1Value" jdbcType="DOUBLE" text="1#NMP浓度监控值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="Nmp2Value" mesName="Nmp2Value" jdbcType="DOUBLE" text="2#NMP浓度监控值" tableName="TT_COLLECT_TB_PROCESS"></column>
+        <column dcsName="AddTime" mesName="Time" text="采集时间" jdbcType="TIMESTAMP" tableName="TT_COLLECT_TB_PROCESS"></column>
+    </insertParam>
+</queue>
+
+    <queue queueName="zpProcessQueue" text="制片过程参数队列">
+        <insertParam>
+            <column dcsName="EquipID" mesName="Equip_Code" text="设备编码" jdbcType="VARCHAR" tableName="TT_COLLECT_ZP_PROCESS"></column>
+            <column dcsName="Status" mesName="Status" jdbcType="DOUBLE" text="设备状态" tableName="TT_COLLECT_ZP_PROCESS"></column>
+            <column dcsName="ProductCount" mesName="ProductCount" jdbcType="DOUBLE" text="生产计数" tableName="TT_COLLECT_ZP_PROCESS"></column>
+            <column dcsName="ProductType" mesName="ProductType" jdbcType="VARCHAR" text="产品型号" tableName="TT_COLLECT_ZP_PROCESS"></column>
+            <column dcsName="UseCount" mesName="UseCount" jdbcType="DOUBLE" text="焊头使用次数" tableName="TT_COLLECT_ZP_PROCESS"></column>
+            <column dcsName="WeldTime" mesName="WeldTime" jdbcType="DOUBLE" text="焊接时间" tableName="TT_COLLECT_ZP_PROCESS"></column>
+            <column dcsName="BeatTime" mesName="BeatTime" jdbcType="DOUBLE" text="节拍时间" tableName="TT_COLLECT_ZP_PROCESS"></column>
+            <column dcsName="IncisionCount" mesName="IncisionCount" jdbcType="DOUBLE" text="切口计数" tableName="TT_COLLECT_ZP_PROCESS"></column>
+            <column dcsName="AddTime" mesName="Time" text="采集时间" jdbcType="TIMESTAMP" tableName="TT_COLLECT_ZP_PROCESS"></column>
+        </insertParam>
+    </queue>
+
+    <queue queueName="hkProcessQueue" text="烘烤过程参数队列">
+        <insertParam>
+            <column dcsName="EquipID" mesName="Equip_Code" text="设备编码" jdbcType="VARCHAR" tableName="TT_COLLECT_HK_PROCESS"></column>
+            <column dcsName="Status0" mesName="Status0" jdbcType="VARCHAR" text="待机状态" tableName="TT_COLLECT_HK_PROCESS"></column>
+            <column dcsName="Status1" mesName="Status1" jdbcType="VARCHAR" text="报警状态" tableName="TT_COLLECT_HK_PROCESS"></column>
+            <column dcsName="Status2" mesName="Status2" jdbcType="VARCHAR" text="运行状态" tableName="TT_COLLECT_HK_PROCESS"></column>
+            <column dcsName="FeedNumber0" mesName="FeedNumber0" jdbcType="DOUBLE" text="上层真空度" tableName="TT_COLLECT_HK_PROCESS"></column>
+            <column dcsName="FeedNumber1" mesName="FeedNumber1" jdbcType="DOUBLE" text="中层真空度" tableName="TT_COLLECT_HK_PROCESS"></column>
+            <column dcsName="FeedNumber2" mesName="FeedNumber2" jdbcType="DOUBLE" text="下层真空度" tableName="TT_COLLECT_HK_PROCESS"></column>
+            <column dcsName="GoodPercent0" mesName="GoodPercent0" jdbcType="DOUBLE" text="上层温度" tableName="TT_COLLECT_HK_PROCESS"></column>
+            <column dcsName="GoodPercent1" mesName="GoodPercent1" jdbcType="DOUBLE" text="中层温度" tableName="TT_COLLECT_HK_PROCESS"></column>
+            <column dcsName="GoodPercent2" mesName="GoodPercent2" jdbcType="DOUBLE" text="下层温度" tableName="TT_COLLECT_HK_PROCESS"></column>
+            <column dcsName="Activition0" mesName="Activition0" jdbcType="DOUBLE" text="上层烘烤时间" tableName="TT_COLLECT_HK_PROCESS"></column>
+            <column dcsName="Activition1" mesName="Activition1" jdbcType="DOUBLE" text="中层烘烤时间" tableName="TT_COLLECT_HK_PROCESS"></column>
+            <column dcsName="Activition2" mesName="Activition2" jdbcType="DOUBLE" text="下层烘烤时间" tableName="TT_COLLECT_HK_PROCESS"></column>
+            <column dcsName="AddTime" mesName="Time" text="采集时间" jdbcType="TIMESTAMP" tableName="TT_COLLECT_HK_PROCESS"></column>
+        </insertParam>
+    </queue>
+
+    <queue queueName="jrProcessQueue" text="卷绕过程参数队列">
+        <insertParam>
+            <column dcsName="EquipID" mesName="Equip_Code" text="设备编码" jdbcType="VARCHAR" tableName="TT_COLLECT_JR_PROCESS"></column>
+            <column dcsName="Status" mesName="Status" jdbcType="VARCHAR" text="设备状态" tableName="TT_COLLECT_JR_PROCESS"></column>
+            <column dcsName="ZjTensile" mesName="ZjTensile" jdbcType="DOUBLE" text="正极收卷张力" tableName="TT_COLLECT_JR_PROCESS"></column>
+            <column dcsName="FjTensile" mesName="FjTensile" jdbcType="DOUBLE" text="负极收卷张力" tableName="TT_COLLECT_JR_PROCESS"></column>
+            <column dcsName="SgmTensile" mesName="SgmTensile" jdbcType="DOUBLE" text="上隔膜收卷张力" tableName="TT_COLLECT_JR_PROCESS"></column>
+            <column dcsName="XgmTensile" mesName="XgmTensile" jdbcType="DOUBLE" text="下隔膜收卷张力" tableName="TT_COLLECT_JR_PROCESS"></column>
+            <column dcsName="Speed" mesName="Speed" jdbcType="DOUBLE" text="卷绕速度" tableName="TT_COLLECT_JR_PROCESS"></column>
+            <column dcsName="GmFj" mesName="GmFj" jdbcType="DOUBLE" text="隔膜-负极距离" tableName="TT_COLLECT_JR_PROCESS"></column>
+            <column dcsName="FjZj" mesName="FjZj" jdbcType="DOUBLE" text="负极-正极距离" tableName="TT_COLLECT_JR_PROCESS"></column>
+            <column dcsName="Width" mesName="Width" jdbcType="DOUBLE" text="电芯宽度" tableName="TT_COLLECT_JR_PROCESS"></column>
+            <column dcsName="JrDistance" mesName="JrDistance" jdbcType="DOUBLE" text="极耳中心距" tableName="TT_COLLECT_JR_PROCESS"></column>
+            <column dcsName="LeftDistance"  mesName="LeftDistance"   jdbcType="DOUBLE" text="左极耳边距" tableName="TT_COLLECT_JR_PROCESS"></column>
+            <column dcsName="RightDistance"  mesName="RightDistance"   jdbcType="DOUBLE" text="右极耳边距" tableName="TT_COLLECT_JR_PROCESS"></column>
+            <column dcsName="LeftTc"  mesName="LeftTc" jdbcType="DOUBLE" text="左极耳探出" tableName="TT_COLLECT_JR_PROCESS"></column>
+            <column dcsName="RightTc"  mesName="RightTc" jdbcType="DOUBLE" text="右极耳探出" tableName="TT_COLLECT_JR_PROCESS"></column>
+            <column dcsName="Capacity"  mesName="Capacity"   jdbcType="DOUBLE" text="产能" tableName="TT_COLLECT_JR_PROCESS"></column>
+            <column dcsName="OutPut"  mesName="OutPut"   jdbcType="DOUBLE" text="产量" tableName="TT_COLLECT_JR_PROCESS"></column>
+            <column dcsName="PassRate"  mesName="PassRate"   jdbcType="DOUBLE" text="电芯良率" tableName="TT_COLLECT_JR_PROCESS"></column>
+            <column dcsName="Total"  mesName="Total"   jdbcType="DOUBLE" text="电芯总数" tableName="TT_COLLECT_JR_PROCESS"></column>
+            <column dcsName="PassNum"  mesName="PassNum"   jdbcType="DOUBLE" text="良品数" tableName="TT_COLLECT_JR_PROCESS"></column>
+            <column dcsName="NgNum" mesName="NgNum"  jdbcType="DOUBLE" text="短路不良" tableName="TT_COLLECT_JR_PROCESS"></column>
+            <column dcsName="FjCoil" mesName="FjCoil"  jdbcType="DOUBLE" text="负极单卷" tableName="TT_COLLECT_JR_PROCESS"></column>
+            <column dcsName="ZjCoil" mesName="ZjCoil"  jdbcType="DOUBLE" text="正极单卷" tableName="TT_COLLECT_JR_PROCESS"></column>
+            <column dcsName="AddTime" mesName="Time" text="采集时间" jdbcType="TIMESTAMP" tableName="TT_COLLECT_JR_PROCESS"></column>
+        </insertParam>
+    </queue>
+
+    <queue queueName="dcfProcessQueue" text="顶侧封过程参数队列">
+        <insertParam>
+            <column dcsName="EquipID" mesName="Equip_Code" text="设备编码" jdbcType="VARCHAR" tableName="TT_COLLECT_DCF_PROCESS"></column>
+            <column dcsName="ShortOutPercent" mesName="ShortOutPercent" jdbcType="DOUBLE" text="短路测试合格率" tableName="TT_COLLECT_DCF_PROCESS"></column>
+            <column dcsName="FeedNumber" mesName="FeedNumber" jdbcType="DOUBLE" text="投入数" tableName="TT_COLLECT_DCF_PROCESS"></column>
+            <column dcsName="GoodPercent" mesName="GoodPercent" jdbcType="DOUBLE" text="良品数" tableName="TT_COLLECT_DCF_PROCESS"></column>
+            <column dcsName="Activition" mesName="Activition" jdbcType="DOUBLE" text="稼动率" tableName="TT_COLLECT_DCF_PROCESS"></column>
+            <column dcsName="PassPercent" mesName="PassPercent" jdbcType="DOUBLE" text="合格率" tableName="TT_COLLECT_DCF_PROCESS"></column>
+            <column dcsName="TopPackerLife" mesName="TopPackerLife" jdbcType="DOUBLE" text="顶封封头寿命" tableName="TT_COLLECT_DCF_PROCESS"></column>
+            <column dcsName="SidePackerLife" mesName="SidePackerLife" jdbcType="DOUBLE" text="侧封封头寿命" tableName="TT_COLLECT_DCF_PROCESS"></column>
+            <column dcsName="TopPackTimeS" mesName="TopPackTimeS" jdbcType="DOUBLE" text="顶封设定时间" tableName="TT_COLLECT_DCF_PROCESS"></column>
+            <column dcsName="SidePackTimeS" mesName="SidePackTimeS" jdbcType="DOUBLE" text="侧封设定时间" tableName="TT_COLLECT_DCF_PROCESS"></column>
+            <column dcsName="D026TestVoltage" mesName="D026TestVoltage" jdbcType="DOUBLE" text="D026测试电压" tableName="TT_COLLECT_DCF_PROCESS"></column>
+            <column dcsName="D027TestVoltage" mesName="D027TestVoltage" jdbcType="DOUBLE" text="D027测试电压" tableName="TT_COLLECT_DCF_PROCESS"></column>
+            <column dcsName="D026TestResistance" mesName="D026TestResistance" jdbcType="DOUBLE" text="D026测试电阻" tableName="TT_COLLECT_DCF_PROCESS"></column>
+            <column dcsName="D027TestResistance" mesName="D027TestResistance" jdbcType="DOUBLE" text="D027测试电阻" tableName="TT_COLLECT_DCF_PROCESS"></column>
+            <column dcsName="AddTime" mesName="Time" text="采集时间" jdbcType="TIMESTAMP" tableName="TT_COLLECT_DCF_PROCESS"></column>
+        </insertParam>
+    </queue>
+
+    <queue queueName="dcfResultQueue" text="顶侧封结果参数队列">
+        <insertParam>
+            <column dcsName="EquipID" mesName="Equip_Code" text="设备编码" jdbcType="VARCHAR" tableName="TT_COLLECT_DCF_RESULT"></column>
+            <column dcsName="BarCode" mesName="CELL_CODE" jdbcType="VARCHAR" text="电芯条码" tableName="TT_COLLECT_DCF_RESULT"></column>
+            <column dcsName="OperatorName" mesName="OperatorName" jdbcType="VARCHAR" text="操作员" tableName="TT_COLLECT_DCF_RESULT"></column>
+            <column dcsName="TopPackTimeS" mesName="TopPackTimeS" jdbcType="DOUBLE" text="顶封设定时间" tableName="TT_COLLECT_DCF_RESULT"></column>
+            <column dcsName="TopPackTimeA" mesName="TopPackTimeA" jdbcType="DOUBLE" text="顶封实际时间" tableName="TT_COLLECT_DCF_RESULT"></column>
+            <column dcsName="D026TestValue" mesName="D026TestValue" jdbcType="DOUBLE" text="D026测试值" tableName="TT_COLLECT_DCF_RESULT"></column>
+            <column dcsName="D027TestValue" mesName="D027TestValue" jdbcType="DOUBLE" text="D027测试值" tableName="TT_COLLECT_DCF_RESULT"></column>
+            <column dcsName="PolarityBreakTestRS" mesName="PolarityBreakTestRS" jdbcType="VARCHAR" text="正负极导通测试结果" tableName="TT_COLLECT_DCF_RESULT"></column>
+            <column dcsName="MaterialBreakTestRS" mesName="MaterialBreakTestRS" jdbcType="VARCHAR" text="负极吕膜导通测试结果" tableName="TT_COLLECT_DCF_RESULT"></column>
+            <column dcsName="FirstPackRS" mesName="FirstPackRS" text="初次封装结果" jdbcType="VARCHAR" tableName="TT_COLLECT_DCF_RESULT"></column>
+            <column dcsName="DateTime" mesName="DateTime" jdbcType="TIMESTAMP" text="顶侧封时间"  tableName="TT_COLLECT_DCF_RESULT"></column>
+            <column dcsName="AddTime" mesName="Time" text="采集时间" jdbcType="TIMESTAMP" tableName="TT_COLLECT_DCF_RESULT"></column>
+        </insertParam>
+        <classParam>
+            <column dcsName="className" referTimeName="DateTime" mesName="CLASS_NAME" text="班制名称"></column>
+            <column dcsName="classNameStr" referTimeName="DateTime" mesName="CLASS_NAME_STR" text="班制跨度"></column>
+        </classParam>
+    </queue>
+
+
+    <queue queueName="zyResultQueue" text="注液结果参数队列">
+        <insertParam>
+            <column dcsName="EquipID" mesName="Equip_Code" text="设备编码" jdbcType="VARCHAR" tableName="TT_COLLECT_ZY_RESULT"></column>
+            <column dcsName="BarCode" mesName="CELL_CODE" jdbcType="VARCHAR" text="电芯条码" tableName="TT_COLLECT_ZY_RESULT"></column>
+            <column dcsName="OperatorName" mesName="OperatorName" jdbcType="VARCHAR" text="操作员" tableName="TT_COLLECT_ZY_RESULT"></column>
+            <column dcsName="ElectolteBatchNumber" mesName="ElectolteBatchNumber" jdbcType="VARCHAR" cellDetailName="ELECTOLTE_BATCH_NUMBER"  text="电解液批次号" tableName="TT_COLLECT_ZY_RESULT"></column>
+            <column dcsName="ElectolteKind" mesName="ElectolteKind" jdbcType="VARCHAR" text="电解液种类" tableName="TT_COLLECT_ZY_RESULT"></column>
+            <column dcsName="LiquldAfterWeight" mesName="LiquldAfterWeight" jdbcType="DOUBLE" text="注液后重量" cellDetailName="LIQULD_AFTER_WEIGHT" tableName="TT_COLLECT_ZY_RESULT"></column>
+            <column dcsName="LiquldBeforeWeight" mesName="LiquldBeforeWeight" jdbcType="DOUBLE" text="注液前重量" cellDetailName="LIQULD_BEFORE_WEIGHT" tableName="TT_COLLECT_ZY_RESULT"></column>
+            <column dcsName="LiquldNumber" mesName="LiquldNumber" jdbcType="DOUBLE" text="注液量" cellDetailName="LIQULD_NUMBER" tableName="TT_COLLECT_ZY_RESULT"></column>
+            <column dcsName="LiquldRS" mesName="LiquldRS" jdbcType="DOUBLE" text="注液结果" tableName="TT_COLLECT_ZY_RESULT"></column>
+            <column dcsName="PackTime" mesName="PackTime" text="预封时间" jdbcType="DOUBLE" tableName="TT_COLLECT_ZY_RESULT"></column>
+            <column dcsName="VcauumizeNumber" mesName="VcauumizeNumber" jdbcType="DOUBLE" text="抽真空次数" tableName="TT_COLLECT_ZY_RESULT"></column>
+            <column dcsName="VcauumizeTime" mesName="VcauumizeTime" jdbcType="DOUBLE" text="抽真空时间"  tableName="TT_COLLECT_ZY_RESULT"></column>
+            <column dcsName="Datetime" mesName="Datetime" text="注液时间" cellDetailName="LIQULD_DATE_TIME" jdbcType="TIMESTAMP" tableName="TT_COLLECT_ZY_RESULT"></column>
+            <column dcsName="AddTime" mesName="Time" text="采集时间" jdbcType="TIMESTAMP" tableName="TT_COLLECT_ZY_RESULT"></column>
+        </insertParam>
+        <classParam>
+            <column dcsName="className" referTimeName="Datetime" mesName="CLASS_NAME" text="班制名称"></column>
+            <column dcsName="classNameStr" referTimeName="Datetime" mesName="CLASS_NAME_STR" text="班制跨度"></column>
+        </classParam>
+    </queue>
+
+    <queue queueName="efResultQueue" text="二封结果参数队列">
+        <insertParam>
+            <column dcsName="EquipID" mesName="Equip_Code" text="设备编码" jdbcType="VARCHAR" tableName="TT_COLLECT_EF_RESULT"></column>
+            <column dcsName="BarCode" mesName="CELL_CODE" jdbcType="VARCHAR" text="电芯条码" tableName="TT_COLLECT_EF_RESULT"></column>
+            <column dcsName="OperatorName" mesName="OperatorName" jdbcType="VARCHAR" text="操作员" tableName="TT_COLLECT_EF_RESULT"></column>
+            <column dcsName="UpPackTemS" mesName="UpPackTemS" jdbcType="DOUBLE" text="上封头设定温度" tableName="TT_COLLECT_EF_RESULT"></column>
+            <column dcsName="DownPackTem" mesName="DownPackTem" jdbcType="DOUBLE" text="下封头设定温度" tableName="TT_COLLECT_EF_RESULT"></column>
+            <column dcsName="TwicePackTimeS" mesName="TwicePackTimeS" jdbcType="DOUBLE" text="二封设定时间" tableName="TT_COLLECT_EF_RESULT"></column>
+            <column dcsName="KeepRelay" mesName="KeepRelay" jdbcType="DOUBLE" text="二封真空延时" tableName="TT_COLLECT_EF_RESULT"></column>
+            <column dcsName="CutSideWeight" mesName="CutSideWeight" jdbcType="DOUBLE" cellDetailName="CUT_SIDE_WEIGHT" text="切边后重量" tableName="TT_COLLECT_EF_RESULT"></column>
+            <column dcsName="KeepLiquld" mesName="KeepLiquld" jdbcType="DOUBLE" text="保液量" cellDetailName="KEEP_LIQULD_NUMBER" tableName="TT_COLLECT_EF_RESULT"></column>
+            <column dcsName="Voltage" mesName="Voltage" text="电压" jdbcType="DOUBLE" tableName="TT_COLLECT_EF_RESULT"></column>
+            <column dcsName="VoltageRS" mesName="VoltageRS" jdbcType="DOUBLE" text="电压结果" tableName="TT_COLLECT_EF_RESULT"></column>
+            <column dcsName="AddTime" mesName="Time" text="采集时间" cellDetailName="EF_DATE_TIME" jdbcType="TIMESTAMP" tableName="TT_COLLECT_EF_RESULT"></column>
+        </insertParam>
+        <classParam>
+            <column dcsName="className" referTimeName="AddTime" mesName="CLASS_NAME" text="班制名称"></column>
+            <column dcsName="classNameStr" referTimeName="AddTime" mesName="CLASS_NAME_STR" text="班制跨度"></column>
+        </classParam>
+    </queue>
+
+    <queue queueName="hcCoreResultQueue" text="化成关键结果参数队列">
+        <insertParam>
+            <column dcsName="EquipID" mesName="Equip_Code" text="设备编码" jdbcType="VARCHAR" tableName="TT_COLLECT_HC_CORE_RESULT"></column>
+            <column dcsName="BarCode" mesName="CELL_CODE" jdbcType="VARCHAR" text="电芯条码" tableName="TT_COLLECT_HC_CORE_RESULT"></column>
+            <column dcsName="AreaCode" mesName="AreaCode" jdbcType="VARCHAR" text="区号" tableName="TT_COLLECT_HC_CORE_RESULT"></column>
+            <column dcsName="ChannelNo" mesName="ChannelNo" jdbcType="VARCHAR" text="通道号" tableName="TT_COLLECT_HC_CORE_RESULT"></column>
+            <column dcsName="Voltage" mesName="Voltage" jdbcType="DOUBLE" text="电压" cellDetailName="HC_VOLTAGE" tableName="TT_COLLECT_HC_CORE_RESULT"></column>
+            <column dcsName="Capacity" mesName="Capacity" jdbcType="DOUBLE" text="容量" tableName="TT_COLLECT_HC_CORE_RESULT"></column>
+            <column dcsName="Interval" mesName="Interval" jdbcType="DOUBLE" cellDetailName="HC_INTERVAL" text="化成时长" tableName="TT_COLLECT_HC_CORE_RESULT"></column>
+            <column dcsName="StartTime" mesName="StartTime" jdbcType="TIMESTAMP" cellDetailName="HC_START_TIME" text="开始时间" tableName="TT_COLLECT_HC_CORE_RESULT"></column>
+            <column dcsName="EndTime" mesName="EndTime" text="结束时间" jdbcType="TIMESTAMP" cellDetailName="HC_END_TIME" tableName="TT_COLLECT_HC_CORE_RESULT"></column>
+            <column dcsName="AddTime" mesName="Time" text="采集时间" jdbcType="TIMESTAMP" tableName="TT_COLLECT_HC_CORE_RESULT"></column>
+        </insertParam>
+        <classParam>
+            <column dcsName="className" referTimeName="StartTime" mesName="CLASS_NAME" text="班制名称"></column>
+            <column dcsName="classNameStr" referTimeName="StartTime" mesName="CLASS_NAME_STR" text="班制跨度"></column>
+        </classParam>
+    </queue>
+
+    <queue queueName="frCoreResultQueue" text="分容关键结果参数队列">
+        <insertParam>
+            <column dcsName="EquipID" mesName="Equip_Code" text="设备编码" jdbcType="VARCHAR" tableName="TT_COLLECT_FR_CORE_RESULT"></column>
+            <column dcsName="BarCode" mesName="CELL_CODE" jdbcType="VARCHAR" text="电芯条码" tableName="TT_COLLECT_FR_CORE_RESULT"></column>
+            <column dcsName="BatchNo" mesName="BatchNo" jdbcType="VARCHAR" text="生产批次" tableName="TT_COLLECT_FR_CORE_RESULT"></column>
+            <column dcsName="OperatorId" mesName="OperatorId" jdbcType="VARCHAR" text="员工编码" tableName="TT_COLLECT_FR_CORE_RESULT"></column>
+            <column dcsName="LayerCode" mesName="LayerCode" jdbcType="VARCHAR" text="层码"  tableName="TT_COLLECT_FR_CORE_RESULT"></column>
+            <column dcsName="CapId" mesName="CapId" jdbcType="DOUBLE" text="柜号"  tableName="TT_COLLECT_FR_CORE_RESULT"></column>
+            <column dcsName="Position" mesName="Position" jdbcType="DOUBLE" text="层位置" tableName="TT_COLLECT_FR_CORE_RESULT"></column>
+            <column dcsName="ChannelId" mesName="ChannelId" jdbcType="VARCHAR" text="通道号" tableName="TT_COLLECT_FR_CORE_RESULT"></column>
+            <column dcsName="TotalCapacity" mesName="TotalCapacity" jdbcType="DOUBLE" text="累计容量" cellDetailName="FR_TOTAL_CAPACITY"  tableName="TT_COLLECT_FR_CORE_RESULT"></column>
+            <column dcsName="StepTime" mesName="StepTime" jdbcType="DOUBLE" cellDetailName="FR_STEPTIME" text="分容时长" tableName="TT_COLLECT_FR_CORE_RESULT"></column>
+            <column dcsName="StartVol" mesName="StartVol" jdbcType="DOUBLE" text="起始电压" cellDetailName="FR_STARTVOL" tableName="TT_COLLECT_FR_CORE_RESULT"></column>
+            <column dcsName="EndVol" mesName="EndVol" text="结束电压" jdbcType="DOUBLE" cellDetailName="FR_ENDVOL"  tableName="TT_COLLECT_FR_CORE_RESULT"></column>
+            <column dcsName="EndElect" mesName="EndElect" text="结束电流" jdbcType="DOUBLE" cellDetailName="FR_ENDELECT" tableName="TT_COLLECT_FR_CORE_RESULT"></column>
+            <column dcsName="StartTime" mesName="StartTime" jdbcType="TIMESTAMP" cellDetailName="FR_START_TIME" text="开始时间" tableName="TT_COLLECT_FR_CORE_RESULT"></column>
+            <column dcsName="EndTime" mesName="EndTime" text="结束时间" jdbcType="TIMESTAMP" cellDetailName="FR_END_TIME" tableName="TT_COLLECT_FR_CORE_RESULT"></column>
+            <column dcsName="AddTime" mesName="Time" text="采集时间" jdbcType="TIMESTAMP" tableName="TT_COLLECT_FR_CORE_RESULT"></column>
+        </insertParam>
+        <classParam>
+            <column dcsName="className" referTimeName="StartTime" mesName="CLASS_NAME" text="班制名称"></column>
+            <column dcsName="classNameStr" referTimeName="StartTime" mesName="CLASS_NAME_STR" text="班制跨度"></column>
+        </classParam>
+    </queue>
+
+
+
+    <queue queueName="frResultQueue" text="分容工步结果参数队列">
+        <insertParam>
+            <column dcsName="EquipID" mesName="Equip_Code" text="设备编码" jdbcType="VARCHAR" tableName="TT_COLLECT_FR_RESULT"></column>
+            <column dcsName="BarCode" mesName="CELL_CODE" jdbcType="VARCHAR" text="电芯条码" tableName="TT_COLLECT_FR_RESULT"></column>
+            <column dcsName="LayerCode" mesName="LayerCode" jdbcType="VARCHAR" text="层码" tableName="TT_COLLECT_FR_RESULT"></column>
+            <column dcsName="Position" mesName="Position" jdbcType="DOUBLE" text="层位置" tableName="TT_COLLECT_FR_RESULT"></column>
+            <column dcsName="CapId" mesName="CapId" jdbcType="DOUBLE" text="柜号" tableName="TT_COLLECT_FR_RESULT"></column>
+            <column dcsName="ChannelId" mesName="ChannelId" jdbcType="VARCHAR" text="通道号" tableName="TT_COLLECT_FR_RESULT"></column>
+            <column dcsName="BatchNo" mesName="BatchNo" jdbcType="VARCHAR" text="生产批次" tableName="TT_COLLECT_FR_RESULT"></column>
+            <column dcsName="OperatorId" mesName="OperatorId" jdbcType="VARCHAR" text="员工编码" tableName="TT_COLLECT_FR_RESULT"></column>
+            <column dcsName="WorkStep" mesName="WorkStep" jdbcType="VARCHAR" text="工步号" tableName="TT_COLLECT_FR_RESULT"></column>
+            <column dcsName="StepType" mesName="StepType" jdbcType="VARCHAR" text="工步类型" tableName="TT_COLLECT_FR_RESULT"></column>
+            <column dcsName="CycleCount" mesName="CycleCount" jdbcType="DOUBLE" text="循环次数" tableName="TT_COLLECT_FR_RESULT"></column>
+            <column dcsName="StartVol" mesName="StartVol" jdbcType="DOUBLE" text="起始电压" tableName="TT_COLLECT_FR_RESULT"></column>
+            <column dcsName="EndVol" mesName="EndVol" jdbcType="DOUBLE" text="结束电压" tableName="TT_COLLECT_FR_RESULT"></column>
+            <column dcsName="AverageVol" mesName="AverageVol" jdbcType="DOUBLE" text="平均电压" tableName="TT_COLLECT_FR_RESULT"></column>
+            <column dcsName="StepCapacity" mesName="StepCapacity" jdbcType="DOUBLE" text="单步容量" tableName="TT_COLLECT_FR_RESULT"></column>
+            <column dcsName="TotalCapacity" mesName="TotalCapacity" jdbcType="DOUBLE" text="累计容量" tableName="TT_COLLECT_FR_RESULT"></column>
+            <column dcsName="EndElect" mesName="EndElect" jdbcType="DOUBLE" text="结束电流" tableName="TT_COLLECT_FR_RESULT"></column>
+            <column dcsName="StartTime" mesName="StartTime" jdbcType="TIMESTAMP" text="开始时间" tableName="TT_COLLECT_FR_CORE_RESULT"></column>
+            <column dcsName="EndTime" mesName="EndTime" text="结束时间" jdbcType="TIMESTAMP" tableName="TT_COLLECT_FR_RESULT"></column>
+            <column dcsName="RunTime" mesName="RunTime" text="运行时间" jdbcType="DOUBLE" tableName="TT_COLLECT_FR_RESULT"></column>
+            <column dcsName="CcdCapacity" mesName="CcdCapacity" text="恒流容量" jdbcType="DOUBLE" tableName="TT_COLLECT_FR_CORE_RESULT"></column>
+            <column dcsName="CcdTime" mesName="CcdTime" text="恒流时间" jdbcType="DOUBLE" tableName="TT_COLLECT_FR_RESULT"></column>
+            <column dcsName="CcdPro" mesName="CcdPro" text="恒流比" jdbcType="DOUBLE" tableName="TT_COLLECT_FR_RESULT"></column>
+            <column dcsName="AddTime" mesName="Time" text="采集时间" jdbcType="TIMESTAMP" tableName="TT_COLLECT_FR_RESULT"></column>
+        </insertParam>
+    </queue>
+
+    <queue queueName="ocv1ResultQueue" text="Ocv1结果参数队列">
+        <insertParam>
+            <column dcsName="EquipID" mesName="Equip_Code" text="设备编码" jdbcType="VARCHAR" tableName="TT_COLLECT_OCV1_RESULT"></column>
+            <column dcsName="BarCode" mesName="CELL_CODE" jdbcType="VARCHAR" text="电芯条码" tableName="TT_COLLECT_OCV1_RESULT"></column>
+            <column dcsName="Voltage" mesName="Voltage" jdbcType="DOUBLE" text="电芯电压" cellDetailName="OCV1_VOLTAGE" tableName="TT_COLLECT_OCV1_RESULT"></column>
+            <column dcsName="Resistance" mesName="Resistance" jdbcType="DOUBLE" text="电芯内阻" cellDetailName="OCV1_RESISTANCE" tableName="TT_COLLECT_OCV1_RESULT"></column>
+            <column dcsName="KValue" mesName="KValue" jdbcType="DOUBLE" text="电芯K值" tableName="TT_COLLECT_OCV1_RESULT"></column>
+            <column dcsName="WorkStep" mesName="WorkStep" jdbcType="VARCHAR" text="工步标示" tableName="TT_COLLECT_OCV1_RESULT"></column>
+            <column dcsName="TestTime" mesName="TestTime" jdbcType="TIMESTAMP" text="操作时间" cellDetailName="OCV1_TEST_TIME" tableName="TT_COLLECT_OCV1_RESULT"></column>
+            <column dcsName="OperatorName" mesName="OperatorName" jdbcType="VARCHAR" text="操作人员" tableName="TT_COLLECT_OCV1_RESULT"></column>
+            <column dcsName="Result" mesName="Result" jdbcType="VARCHAR" text="检测结果" cellDetailName="OCV1_RESULT" tableName="TT_COLLECT_OCV1_RESULT"></column>
+            <column dcsName="Reason" mesName="Reason" text="异常原因" jdbcType="VARCHAR" tableName="TT_COLLECT_OCV1_RESULT"></column>
+            <column dcsName="Thickness" mesName="Thickness" jdbcType="DOUBLE" text="厚度" tableName="TT_COLLECT_OCV1_RESULT"></column>
+            <column dcsName="SideVol" mesName="SideVol" jdbcType="DOUBLE" text="边电压" tableName="TT_COLLECT_OCV1_RESULT"></column>
+            <column dcsName="AddTime" mesName="Time" text="采集时间" jdbcType="TIMESTAMP" tableName="TT_COLLECT_OCV1_RESULT"></column>
+        </insertParam>
+        <classParam>
+            <column dcsName="className" referTimeName="TestTime" mesName="CLASS_NAME" text="班制名称"></column>
+            <column dcsName="classNameStr" referTimeName="TestTime" mesName="CLASS_NAME_STR" text="班制跨度"></column>
+        </classParam>
+    </queue>
+
+    <queue queueName="ocv2ResultQueue" text="Ocv2结果参数队列">
+        <insertParam>
+            <column dcsName="EquipID" mesName="Equip_Code" text="设备编码" jdbcType="VARCHAR" tableName="TT_COLLECT_OCV2_RESULT"></column>
+            <column dcsName="BarCode" mesName="CELL_CODE" jdbcType="VARCHAR" text="电芯条码" tableName="TT_COLLECT_OCV2_RESULT"></column>
+            <column dcsName="Voltage" mesName="Voltage" jdbcType="DOUBLE" text="电芯电压" cellDetailName="OCV2_VOLTAGE" tableName="TT_COLLECT_OCV2_RESULT"></column>
+            <column dcsName="Resistance" mesName="Resistance" jdbcType="DOUBLE" text="电芯内阻" cellDetailName="OCV2_RESISTANCE"  tableName="TT_COLLECT_OCV2_RESULT"></column>
+            <column dcsName="KValue" mesName="KValue" jdbcType="DOUBLE" text="电芯K值" tableName="TT_COLLECT_OCV2_RESULT"></column>
+            <column dcsName="WorkStep" mesName="WorkStep" jdbcType="VARCHAR" text="工步标示" tableName="TT_COLLECT_OCV2_RESULT"></column>
+            <column dcsName="TestTime" mesName="TestTime" jdbcType="TIMESTAMP" cellDetailName="OCV2_TEST_TIME" text="操作时间" tableName="TT_COLLECT_OCV2_RESULT"></column>
+            <column dcsName="OperatorName" mesName="OperatorName" jdbcType="VARCHAR" text="操作人员" tableName="TT_COLLECT_OCV2_RESULT"></column>
+            <column dcsName="Result" mesName="Result" jdbcType="VARCHAR" text="检测结果" cellDetailName="OCV2_RESULT" tableName="TT_COLLECT_OCV2_RESULT"></column>
+            <column dcsName="Reason" mesName="Reason" text="异常原因" jdbcType="VARCHAR" tableName="TT_COLLECT_OCV2_RESULT"></column>
+            <column dcsName="Thickness" mesName="Thickness" jdbcType="DOUBLE" text="厚度" tableName="TT_COLLECT_OCV2_RESULT"></column>
+            <column dcsName="SideVol" mesName="SideVol" jdbcType="DOUBLE" text="边电压" tableName="TT_COLLECT_OCV2_RESULT"></column>
+            <column dcsName="AddTime" mesName="Time" text="采集时间" jdbcType="TIMESTAMP" tableName="TT_COLLECT_OCV2_RESULT"></column>
+        </insertParam>
+        <classParam>
+            <column dcsName="className" referTimeName="TestTime" mesName="CLASS_NAME" text="班制名称"></column>
+            <column dcsName="classNameStr" referTimeName="TestTime" mesName="CLASS_NAME_STR" text="班制跨度"></column>
+        </classParam>
+    </queue>
+
+    <queue queueName="xrayResultQueue" text="XRAY结果参数队列">
+        <insertParam>
+            <column dcsName="EquipID" mesName="Equip_Code" text="设备编码" jdbcType="VARCHAR" tableName="TT_COLLECT_XRAY_RESULT"></column>
+            <column dcsName="BarCode" mesName="CELL_CODE" jdbcType="VARCHAR" text="电芯条码" tableName="TT_COLLECT_XRAY_RESULT"></column>
+            <column dcsName="Operator" mesName="Operator" jdbcType="VARCHAR" text="操作员" tableName="TT_COLLECT_XRAY_RESULT"></column>
+            <column dcsName="OverhangMax" mesName="OverhangMax" jdbcType="VARCHAR" text="Overhang上限" tableName="TT_COLLECT_XRAY_RESULT"></column>
+            <column dcsName="OverhangMin" mesName="OverhangMin" jdbcType="VARCHAR" text="Overhang下限"  tableName="TT_COLLECT_XRAY_RESULT"></column>
+            <column dcsName="TestResult" mesName="TestResult" jdbcType="VARCHAR" cellDetailName="XRAY_RESULT" text="判定结果" tableName="TT_COLLECT_XRAY_RESULT"></column>
+            <column dcsName="LightLife" mesName="LightLife" jdbcType="VARCHAR" text="光管寿命" tableName="TT_COLLECT_XRAY_RESULT"></column>
+            <column dcsName="OneMax" mesName="OneMax" jdbcType="VARCHAR" text="一角最大值" tableName="TT_COLLECT_XRAY_RESULT"></column>
+            <column dcsName="OneMin" mesName="OneMin" text="一角最小值" jdbcType="VARCHAR" tableName="TT_COLLECT_XRAY_RESULT"></column>
+            <column dcsName="OneAve" mesName="OneAve" jdbcType="VARCHAR" text="一角平均值" tableName="TT_COLLECT_XRAY_RESULT"></column>
+            <column dcsName="TwoMax" mesName="TwoMax" jdbcType="VARCHAR" text="二角最大值" tableName="TT_COLLECT_XRAY_RESULT"></column>
+            <column dcsName="TwoMin" mesName="TwoMin" text="二角最小值" jdbcType="VARCHAR" tableName="TT_COLLECT_XRAY_RESULT"></column>
+            <column dcsName="AddTime" mesName="Time" text="采集时间" cellDetailName="XRAY_TEST_TIME" jdbcType="TIMESTAMP" tableName="TT_COLLECT_XRAY_RESULT"></column>
+        </insertParam>
+        <classParam>
+            <column dcsName="className" referTimeName="AddTime" mesName="CLASS_NAME" text="班制名称"></column>
+            <column dcsName="classNameStr" referTimeName="AddTime" mesName="CLASS_NAME_STR" text="班制跨度"></column>
+        </classParam>
+    </queue>
+
+    <queue queueName="packOcvResultQueue" text="PACK段ocv结果参数队列">
+        <insertParam>
+            <column dcsName="EquipID" mesName="Equip_Code" text="设备编码" jdbcType="VARCHAR" tableName="TT_COLLECT_PACK_OCV_RESULT"></column>
+            <column dcsName="BarCode" mesName="CELL_CODE" jdbcType="VARCHAR" text="电芯编码" tableName="TT_COLLECT_PACK_OCV_RESULT"></column>
+            <column dcsName="Voltage" mesName="Voltage" jdbcType="DOUBLE" text="电压" tableName="TT_COLLECT_PACK_OCV_RESULT"></column>
+            <column dcsName="Resistance" mesName="Resistance" jdbcType="DOUBLE" text="内阻" tableName="TT_COLLECT_PACK_OCV_RESULT"></column>
+            <column dcsName="Sort" mesName="Sort" jdbcType="DOUBLE" text="档位" tableName="TT_COLLECT_PACK_OCV_RESULT"></column>
+            <column dcsName="TestTime" mesName="TestTime" jdbcType="TIMESTAMP" text="测试时间" tableName="TT_COLLECT_PACK_OCV_RESULT"></column>
+            <column dcsName="AddTime" mesName="Time" text="采集时间" jdbcType="TIMESTAMP" tableName="TT_COLLECT_PACK_OCV_RESULT"></column>
+        </insertParam>
+    </queue>
+
+    <queue queueName="packOldResultQueue" text="PACK段老化工步结果参数队列">
+        <insertParam>
+            <column dcsName="EquipID" mesName="Equip_Code" text="设备编码" jdbcType="VARCHAR" tableName="TT_COLLECT_PACK_OLD_RESULT"></column>
+            <column dcsName="BarCode" mesName="CELL_CODE" jdbcType="VARCHAR" text="电芯条码" tableName="TT_COLLECT_PACK_OLD_RESULT"></column>
+            <column dcsName="WorkStep" mesName="WorkStep" jdbcType="VARCHAR" text="工步类型" tableName="TT_COLLECT_PACK_OLD_RESULT"></column>
+            <column dcsName="StartTime" mesName="StartTime" jdbcType="TIMESTAMP" text="起始时间"  tableName="TT_COLLECT_PACK_OLD_RESULT"></column>
+            <column dcsName="SVoltage" mesName="SVoltage" jdbcType="DOUBLE" text="起始电压" tableName="TT_COLLECT_PACK_OLD_RESULT"></column>
+            <column dcsName="SElc" mesName="SElc" jdbcType="DOUBLE" text="起始电流" tableName="TT_COLLECT_PACK_OLD_RESULT"></column>
+            <column dcsName="EndTime" mesName="EndTime" jdbcType="TIMESTAMP" text="截止时间" tableName="TT_COLLECT_PACK_OLD_RESULT"></column>
+            <column dcsName="EVoltage" mesName="EVoltage" jdbcType="DOUBLE" text="截止电压" tableName="TT_COLLECT_PACK_OLD_RESULT"></column>
+            <column dcsName="EElc" mesName="EElc" jdbcType="DOUBLE" text="截止电流" tableName="TT_COLLECT_PACK_OLD_RESULT"></column>
+            <column dcsName="Energy" mesName="Energy" jdbcType="DOUBLE" text="结束能量" tableName="TT_COLLECT_PACK_OLD_RESULT"></column>
+            <column dcsName="Capacity" mesName="Capacity" jdbcType="DOUBLE" text="结束容量" tableName="TT_COLLECT_PACK_OLD_RESULT"></column>
+            <column dcsName="RsocValue" mesName="RsocValue" jdbcType="DOUBLE" text="RSOC" tableName="TT_COLLECT_PACK_OLD_RESULT"></column>
+            <column dcsName="AddTime" mesName="Time" text="采集时间" jdbcType="TIMESTAMP" tableName="TT_COLLECT_PACK_OLD_RESULT"></column>
+        </insertParam>
+    </queue>
+
+    <queue queueName="packTaiSiTestResultQueue" text="PACK段泰斯测试结果参数队列">
+        <insertParam>
+            <column dcsName="EquipID" mesName="Equip_Code" text="设备编码" jdbcType="VARCHAR" tableName="TT_COLLECT_TS_TEST_RESULT"></column>
+            <column dcsName="BarCode" mesName="CELL_CODE" jdbcType="VARCHAR" text="电芯条码" tableName="TT_COLLECT_TS_TEST_RESULT"></column>
+            <column dcsName="NoLoadVol" mesName="NOLOADVOL" jdbcType="DOUBLE" text="空载电压" tableName="TT_COLLECT_TS_TEST_RESULT"></column>
+            <column dcsName="ChargeVol" mesName="CHARGEVOL" jdbcType="DOUBLE" text="充电电压"  tableName="TT_COLLECT_TS_TEST_RESULT"></column>
+            <column dcsName="ChargeElect" mesName="CHARGEELECT" jdbcType="DOUBLE" text="充电电流" tableName="TT_COLLECT_TS_TEST_RESULT"></column>
+            <column dcsName="Resistance" mesName="RESISTANCE" jdbcType="DOUBLE" text="交流内阻" tableName="TT_COLLECT_TS_TEST_RESULT"></column>
+            <column dcsName="DisVol" mesName="DISVOL" jdbcType="DOUBLE" text="放电电压" tableName="TT_COLLECT_TS_TEST_RESULT"></column>
+            <column dcsName="DisElect" mesName="DISELECT" jdbcType="DOUBLE" text="放电电流" tableName="TT_COLLECT_TS_TEST_RESULT"></column>
+            <column dcsName="StTime" mesName="STTIME" jdbcType="DOUBLE" text="短路延时" tableName="TT_COLLECT_TS_TEST_RESULT"></column>
+            <column dcsName="SValue" mesName="SVALUE" jdbcType="DOUBLE" text="短路后电压" tableName="TT_COLLECT_TS_TEST_RESULT"></column>
+            <column dcsName="SRValue" mesName="SRVALUE" jdbcType="DOUBLE" text="短路恢复后电压" tableName="TT_COLLECT_TS_TEST_RESULT"></column>
+            <column dcsName="DoTime" mesName="DOTIME" jdbcType="DOUBLE" text="放电过流延时" tableName="TT_COLLECT_TS_TEST_RESULT"></column>
+            <column dcsName="DocElect" mesName="DOCELECT" jdbcType="DOUBLE" text="放电过流电流" tableName="TT_COLLECT_TS_TEST_RESULT"></column>
+            <column dcsName="DocVol" mesName="DOCVOL" jdbcType="DOUBLE" text="放电过流电压" tableName="TT_COLLECT_TS_TEST_RESULT"></column>
+            <column dcsName="V1Value" mesName="V1VALUE" jdbcType="DOUBLE" text="V1" tableName="TT_COLLECT_TS_TEST_RESULT"></column>
+            <column dcsName="R1Value" mesName="R1VALUE" jdbcType="DOUBLE" text="R1" tableName="TT_COLLECT_TS_TEST_RESULT"></column>
+            <column dcsName="DcrValue" mesName="DCRVALUE" jdbcType="DOUBLE" text="直流阻抗" tableName="TT_COLLECT_TS_TEST_RESULT"></column>
+            <column dcsName="TestTime" mesName="TESTTIME" jdbcType="TIMESTAMP" text="测试时间" tableName="TT_COLLECT_TS_TEST_RESULT"></column>
+            <column dcsName="Result" mesName="RESULT" jdbcType="VARCHAR" text="测试结果" tableName="TT_COLLECT_TS_TEST_RESULT"></column>
+            <column dcsName="AddTime" mesName="Time" text="采集时间" jdbcType="TIMESTAMP" tableName="TT_COLLECT_TS_TEST_RESULT"></column>
+        </insertParam>
+    </queue>
+
+
+</collect>

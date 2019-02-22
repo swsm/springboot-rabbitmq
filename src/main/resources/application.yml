@@ -1,0 +1,23 @@
+spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: root
+    password: root
+    publisher-confirms: true
+    publisher-returns: true
+    listener:
+      simple:
+        acknowledge-mode: manual
+  datasource:
+    druid:
+      url: jdbc:oracle:thin:@192.168.18.232:1521:orclcs
+      username: XYGFZB_USER
+      password: XYGFZB_USER
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      driver-class-name: oracle.jdbc.driver.OracleDriver
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
